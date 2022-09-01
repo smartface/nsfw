@@ -41,7 +41,8 @@
     "js/src",
     "src",
     "includes",
-    "binding.gyp"
+    "binding.gyp",
+    "binding.js"
   ],
   "homepage": "https://github.com/axosoft/node-simple-file-watcher",
   "dependencies": {
