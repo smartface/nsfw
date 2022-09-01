@@ -1,6 +1,6 @@
 {
     "targets": [{
-        "target_name": "nsfw",
+        "target_name": "nsfw-prebuild",
 
         "sources": [
             "src/NSFW.cpp",

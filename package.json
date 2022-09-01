@@ -1,12 +1,28 @@
 {
-  "name": "nsfw",
+  "name": "@smartface/nsfw-prebuild",
   "version": "2.2.2",
   "description": "A simple file watcher for Node",
   "main": "js/src/index.js",
   "scripts": {
     "lint": "eslint js/src js/spec",
     "test": "yarn lint && node js/scripts/test.js",
-    "test:nolint": "node js/scripts/test.js"
+    "test:nolint": "node js/scripts/test.js",
+    "install": "node-gyp-build",
+    "test-gc": "node --expose-gc test/gc.js",
+    "test-electron": "electron test/electron.js",
+    "test-prebuild": "cross-env PREBUILDS_ONLY=1 npm t",
+    "coverage": "nyc report -r lcovonly",
+    "rebuild": "npm run install --build-from-source",
+    "prebuild": "prebuildify -t 8.14.0 --napi --strip",
+    "download-prebuilds": "prebuildify-ci download",
+    "hallmark": "hallmark --fix",
+    "dependency-check": "dependency-check --no-dev -i napi-macros . test/*.js",
+    "prepublishOnly": "npm run dependency-check",
+    "prebuild-linux-arm": "prebuildify-cross -i linux-armv6 -i linux-armv7 -i linux-arm64 -t 8.14.0 --napi --strip",
+    "prebuild-linux-x64": "prebuildify-cross -i centos7-devtoolset7 -i alpine -t 8.14.0 --napi --strip",
+    "prebuild-darwin-x64+arm64": "prebuildify -t 8.14.0 --napi --strip --arch x64+arm64",
+    "prebuild-win32-x86": "prebuildify -t 8.14.0 --napi --strip",
+    "prebuild-win32-x64": "prebuildify -t 8.14.0 --napi --strip"
   },
   "repository": {
     "type": "git",
@@ -30,13 +46,35 @@
   ],
   "homepage": "https://github.com/axosoft/node-simple-file-watcher",
   "dependencies": {
+    "napi-macros": "~2.0.0",
+    "node-gyp-build": "^4.3.0",
     "node-addon-api": "*"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
     "executive": "^1.6.3",
     "fs-extra": "^7.0.0",
-    "mocha": "^7.1.1"
+    "mocha": "^7.1.1",
+    "async-each": "^1.0.3",
+    "cross-env": "^7.0.3",
+    "delayed": "^2.0.0",
+    "dependency-check": "^4.1.0",
+    "du": "^1.0.0",
+    "faucet": "^0.0.1",
+    "glob": "^7.1.3",
+    "hallmark": "^4.0.0",
+    "level-concat-iterator": "^3.0.0",
+    "mkfiletree": "^2.0.0",
+    "node-gyp": "^8.4.1",
+    "nyc": "^15.0.0",
+    "prebuildify": "^5.0.0",
+    "prebuildify-ci": "^1.0.4",
+    "prebuildify-cross": "^5.0.0",
+    "readfiletree": "^1.0.0",
+    "rimraf": "^3.0.0",
+    "standard": "^16.0.3",
+    "tape": "^5.0.1",
+    "tempy": "^1.0.1"
   },
   "keywords": [
     "FileWatcher",
