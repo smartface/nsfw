@@ -1,6 +1,6 @@
 {
   "name": "@smartface/nsfw-prebuild",
-  "version": "2.2.2-rc.0",
+  "version": "2.2.2-rc.1",
   "description": "A simple file watcher for Node",
   "main": "js/src/index.js",
   "scripts": {
@@ -30,7 +30,7 @@
   "types": "index.d.ts",
   "license": "MIT",
   "bugs": {
-  "url": "https://github.com/smartface/nsfw/issues"
+    "url": "https://github.com/smartface/nsfw/issues"
   },
   "engines": {
     "node": ">=10.16.0"
