@@ -26,13 +26,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/axosoft/node-simple-file-watcher.git"
+    "url": "https://github.com/smartface/nsfw.git"
   },
-  "author": "Axosoft, LLC",
+  "author": "Smartface",
   "types": "index.d.ts",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/axosoft/node-simple-file-watcher/issues"
+  "url": "https://github.com/smartface/nsfw/issues"
   },
   "engines": {
     "node": ">=10.16.0"
